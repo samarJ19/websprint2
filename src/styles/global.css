@@ -3,3 +3,222 @@
       @apply text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
     }
   }
+
+
+  .events-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .events-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .events-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .events-header h1:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #4285f4;
+    border-radius: 2px;
+  }
+  
+  /* Loading state */
+  .events-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(66, 133, 244, 0.2);
+    border-top: 5px solid #4285f4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Events grid */
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  /* Event card */
+  .event-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    height: 100%;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .event-image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .event-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .event-card:hover .event-image-container img {
+    transform: scale(1.05);
+  }
+  
+  /* Registration badge */
+  .registration-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .registration-badge.open {
+    background-color: #34a853;
+  }
+  
+  .registration-badge.closed {
+    background-color: #ea4335;
+  }
+  
+  /* Event details */
+  .event-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .event-details h2 {
+    margin: 0 0 15px 0;
+    font-size: 1.4rem;
+    color: #333;
+    line-height: 1.3;
+  }
+  
+  .event-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .event-date, .event-time, .event-venue {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .event-date .material-icons, 
+  .event-time .material-icons, 
+  .event-venue .material-icons {
+    font-size: 18px;
+    margin-right: 5px;
+    color: #4285f4;
+  }
+  
+  .event-description {
+    margin: 15px 0;
+    color: #555;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .event-callabs {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .event-callabs span:first-child {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .event-register-btn {
+    margin-top: auto;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+    margin-top: 15px;
+  }
+  
+  .event-register-btn:hover {
+    background-color: #1a73e8;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .events-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .events-header h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .events-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .event-details h2 {
+      font-size: 1.3rem;
+    }
+    
+    .events-header h1 {
+      font-size: 1.8rem;
+    }
+  }

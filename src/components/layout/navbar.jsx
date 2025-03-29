@@ -28,9 +28,10 @@ export function Navbar() {
         </Link>
         </div>
         <div className="hidden md:flex space-x-4 items-center">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/domains" className="nav-link">Domains</Link>
-          <Link to="/events" className="nav-link">Events</Link>
+          <Link to="/" className="nav-link">Events</Link>
+          <Link to="/domains" className="nav-link">Gallery</Link>
+          <Link to="/events" className="nav-link">Team</Link>
+          <Link to="/contact" className="nav-link">Contact</Link>
           <ThemeToggle />
         </div>
 
