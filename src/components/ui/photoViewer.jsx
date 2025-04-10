@@ -3,13 +3,14 @@ import { createPortal } from 'react-dom';
 
 export default function PhotoViewer({ 
   images = [], 
-  initialIndex = 0, 
+  initialIndex, 
   onClose = () => {},
   isOpen = false
 }) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   
   const goToNext = () => {
+    console.log('Close button clicked');
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
   
@@ -20,7 +21,7 @@ export default function PhotoViewer({
   // Handle keyboard navigation
   useEffect(() => {
     if (!isOpen) return;
-    
+    setCurrentIndex(initialIndex)
     const handleKeyDown = (event) => {
       if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
         goToNext();
@@ -59,7 +60,7 @@ export default function PhotoViewer({
       {/* Previous button */}
       <button 
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white p-2 rounded-full transition"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-1 bg-black bg-opacity-50 hover:bg-opacity-80 text-white p-2 rounded-full transition"
         aria-label="Previous image"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,7 +71,7 @@ export default function PhotoViewer({
       {/* Next button */}
       <button 
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white p-2 rounded-full transition"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-1 bg-black bg-opacity-50 hover:bg-opacity-80 text-white p-2 rounded-full transition"
         aria-label="Next image"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">

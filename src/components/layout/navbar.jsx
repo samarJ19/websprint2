@@ -34,9 +34,10 @@ export function Navbar() {
           </Link>
         </div>
         <div className="hidden md:flex space-x-8 items-center font-medium">
-          <a href="/#" className={`nav-link ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'}`} >Login</a>
+          <a href="https://websprintadmin.vercel.app/" referrerPolicy='no-referrer' rel='noopener' className={`nav-link ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'}`} >Login</a>
           <Link to="/events" className={`nav-link ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'}`}>Events</Link>
           <Link to="/domains" className={`nav-link ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'}`}>Domains</Link>
+          <Link to="/galleryhome" className={`nav-link ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'}`}>Gallery</Link>
           <ThemeToggle />
         </div>
 
