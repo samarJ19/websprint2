@@ -1,11 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from '@tailwindcss/postcss' // Updated import
 
-
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),
-    tailwindcss(),
+  assetsInclude: ['**/*.JPG', '**/*.jpg'],plugins: [
+    react(),
   ],
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss(), // Use the PostCSS plugin here
+      ],
+    },
+  },
 })
